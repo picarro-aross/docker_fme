@@ -1,15 +1,16 @@
 FROM debian:buster
 
-
 WORKDIR /tmp
-COPY fme-desktop-2021_2021.2.3.21812~debian.10_amd64.deb fme.deb
-
 RUN apt update
 
 # these packages do not install _well_ with --fix-broken
 RUN apt install --yes \
         openjdk-11-jre-headless \
-        ca-certificates-java
+        ca-certificates-java \
+        wget
+
+RUN wget -O /tmp/fme.deb \
+        https://downloads.safe.com/fme/2021/fme-desktop-2021_2021.2.3.21812~debian.10_amd64.deb
 
 # fme installation will fail due to unmet dependencies
 #   return true to preventing halting Docker build
