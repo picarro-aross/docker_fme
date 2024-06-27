@@ -12,7 +12,7 @@ chmod a+rwx fme_runtime/
 ```
 
 Execute with:
-`./runme`
+`./fmeworkbench`
 
 The `fme_runtime` directory is used to store licenses and config outside of the container.
 It can also be used to hold data and save `.fmw` files.
