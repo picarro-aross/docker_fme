@@ -1,0 +1,12 @@
+#!/bin/bash
+
+xhost +local:docker \
+    && docker run -it --rm \
+        -u ufme \
+        -e DISPLAY \
+        --device /dev/dri \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -v /dev/shm:/dev/shm \
+        -v ./fme_runtime:/home/ufme \
+        fme-desktop
+
