@@ -18,8 +18,11 @@ RUN apt --fix-broken --yes install \
         && apt clean \
         && apt remove \
         && apt --yes autoremove
-
 RUN rm /tmp/fme.deb
 
+# fme will not run as root
+RUN useradd -ms /bin/bash ufme
+
+USER ufme
 CMD /opt/fme-desktop-2021/bin/fmeworkbench
 
