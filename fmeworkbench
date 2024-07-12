@@ -2,11 +2,11 @@
 
 xhost +local:docker \
     && docker run -it --rm \
-        -u ufme \
-        -e DISPLAY \
+        --user ufme \
+        --env DISPLAY \
         --device /dev/dri \
-        -v /tmp/.X11-unix:/tmp/.X11-unix \
-        -v /dev/shm:/dev/shm \
-        -v ./fme_runtime:/home/ufme \
+        --volume /tmp/.X11-unix:/tmp/.X11-unix \
+        --volume /dev/shm:/dev/shm \
+        --volume ./fme_runtime:/home/ufme \
         fme-desktop
 
