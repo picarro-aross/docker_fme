@@ -1,7 +1,9 @@
 #!/bin/bash
 
 xhost +local:docker \
-    && docker run -it --rm \
+    && docker run \
+        --rm \
+        --detach \
         --user ufme \
         --env DISPLAY \
         --device /dev/dri \
